@@ -12,6 +12,9 @@ import { fileURLToPath } from "url";
 
 import authRoutes from "./routes/auth.js";
 //the above will be route path all the feature
+
+import userRoutes from ".routes/users.js";
+
 import {register} from "./controllers/auth.js";
 
 
@@ -60,6 +63,12 @@ app.post("/auth/register",upload.single("picture"),register);
 
 //ROUTES WITH FILES 
 app.post("/auth",authRoutes); // help to set up to route and keep organised the files
+
+
+//ROUTES
+app.use("/auth",authRoutes);
+app.use("/users",useRoutes);
+
 
 
 // mongoose setup
