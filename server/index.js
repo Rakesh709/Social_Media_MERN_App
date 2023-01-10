@@ -13,7 +13,9 @@ import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.js";
 //the above will be route path all the feature
 
-import userRoutes from ".routes/users.js";
+import userRoutes from "./routes/users.js";
+
+import postRoutes from "./routes/posts.js;"
 
 import {register} from "./controllers/auth.js";
 
@@ -67,7 +69,8 @@ app.post("/auth",authRoutes); // help to set up to route and keep organised the 
 
 //ROUTES
 app.use("/auth",authRoutes);
-app.use("/users",useRoutes);
+app.use("/users",userRoutes);
+app.use("/posts",postRoutes);
 
 
 
