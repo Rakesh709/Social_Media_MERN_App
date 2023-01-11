@@ -19,6 +19,10 @@ import postRoutes from "./routes/posts.js;"
 
 import {register} from "./controllers/auth.js";
 
+import {createPost} from "./controllers/posts.js"
+
+import { verifyToken } from "./middleware/auth.js";
+
 
 // CONFIGURATION
 
@@ -62,9 +66,11 @@ const upload = multer({ storage });
 /* ROUTES WITH FILES */
 app.post("/auth/register",upload.single("picture"),register);
 // upload.single is the middle ware and register is a controller
+app.post("/posts",verifyToken ,upload.single("picture"),createPost)
 
 //ROUTES WITH FILES 
-app.post("/auth",authRoutes); // help to set up to route and keep organised the files
+// app.post("/auth",authRoutes); // help to set up to route and keep organised the files
+
 
 
 //ROUTES
