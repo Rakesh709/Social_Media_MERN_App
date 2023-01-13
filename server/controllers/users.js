@@ -1,4 +1,4 @@
-import User from "../modles/User";
+import User from "../modles/User.js";
 
 //Read
 export const getUser = async (req, res)=>{

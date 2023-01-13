@@ -23,6 +23,10 @@ import {createPost} from "./controllers/posts.js"
 
 import { verifyToken } from "./middleware/auth.js";
 
+import User from "./modles/User.js";
+import Post from "./modles/Post.js";
+import { users, posts } from "./data/index.js";
+
 
 // CONFIGURATION
 
@@ -88,5 +92,9 @@ mongoose.connect(process.env.MONGO_URL, {
 })
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port:${PORT}`));
+    //ADD DATA ONE TIME when you need to add data in db uncomment and run it the comment it 
+    // User.insertMany(users);
+    // Post.insertMany(posts);
+
   })
   .catch((error) => console.log(`${error} did not connect`));
