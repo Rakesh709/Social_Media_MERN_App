@@ -6,7 +6,7 @@ import ProfilePage from "scenes/profilePage";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { CssBaseline,ThemeProvider } from "@mui/material";
-import { createTheme } from "@mui/materil/style";
+import {createTheme } from "@mui/material/styles"
 import { themeSettings } from "./theme";
 
 
@@ -20,6 +20,7 @@ function App() {
     <div className="app">
       <BrowserRouter>
       <ThemeProvider theme={theme}>
+       <CssBaseline/> {/*csss reset for material ui */}
         <Routes>
           <Route  path="/" element={<loginPage/>}  />
           <Route  path="/home" element={<HomePage/>}  />

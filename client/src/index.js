@@ -17,8 +17,9 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { PersistGate } from 'redux-persist/integration/react';
-import { getDefaultNormalizer } from '@testing-library/react';
-import { GetDefaultMiddleware } from '@reduxjs/toolkit/dist/getDefaultMiddleware';
+
+
+
 //the above will store all the state in locally untill we clear the cache
 
 const persistConfig = {key:"root",storage,version:1};
