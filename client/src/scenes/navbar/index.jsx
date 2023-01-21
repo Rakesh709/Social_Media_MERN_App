@@ -98,17 +98,54 @@ const Nabar=()=>{
                         width:"150px",
                         borderRadius:"0.25rem",
                         p:"1.25rem 1rem",
-                        
+                        "& .MuiSvgIcon-root":{
+                            pr:"0.25rem",
+                            width:"3rem"
+                        },
+                        "& .MuiSelect-select:focus":{
+                            backgroundColor:neutralLight
+                        }
 
                     }}
+                    input={<InputBase/>}
                     >
-
+                    <MenuItem value={fullName}>
+                        <Typography>{fullName}</Typography>
+                    </MenuItem>
+                    <MenuItem onClick={()=> dispatch(setLogout())}>Log Out</MenuItem>
                     </Select>
                 </FormControl>
 
             </FlexBetween>
             ) : (
-                <IconButton></IconButton>)}
+                <IconButton
+                onClick={()=> setIsMobileMenuToggled(!isMobileMenuToggled)}
+                >
+                    <Menu/>
+                </IconButton>
+                )}
+                {/* Mobile nav */}
+                {!isNotMobileScreens && isNotMobileScreens && (
+                   <Box
+                   position="fixed"
+                   right="0"
+                   bottom="0"
+                   height="100%"
+                   zIndex="10"
+                   maxWidth="500px"
+                   minWidth="300px"
+                   backgroundColor={background}
+                   >
+                    {/*close icon  */}
+                    <Box display="flex"  justifyContent="flex-end" p="1rem">
+                       <IconButton
+                       onClick={()=> setIsMobileMenuToggled(!isMobileMenuToggled)}
+                       >
+                            <Close/>
+                       </IconButton> 
+                    </Box>      
+                   </Box> 
+                )}
         </FlexBetween>
     )
 }
