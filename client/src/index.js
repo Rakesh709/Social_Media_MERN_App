@@ -25,7 +25,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 const persistConfig = {key:"root",storage,version:1};
 const persistedReducer = persistReducer(persistConfig, authReducer);
 const store = configureStore({
-    reducer:persistReducer,
+    reducer:persistedReducer,
     middleware:(GetDefaultMiddleware)=>
         GetDefaultMiddleware({
             serializableCheck:{
