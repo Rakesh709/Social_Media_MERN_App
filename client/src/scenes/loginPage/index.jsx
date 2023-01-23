@@ -1,7 +1,13 @@
+import { Box } from "@mui/material";
+
 const LoginPage=()=>{
+    
     return(
-        <div>loginPage</div>
+        <Box>
+            <div>loginPage</div>
+        </Box>
+        
     )
 }
 
-export default loginPage;
+export default LoginPage;

@@ -23,7 +23,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 //the above will store all the state in locally untill we clear the cache
 
 const persistConfig = {key:"root",storage,version:1};
-const persistedReducer = persistReducer(persistConfig,authReducer);
+const persistedReducer = persistReducer(persistConfig, authReducer);
 const store = configureStore({
     reducer:persistReducer,
     middleware:(GetDefaultMiddleware)=>
@@ -34,7 +34,7 @@ const store = configureStore({
         }),
     });
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
         <Provider store={store}>

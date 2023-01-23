@@ -32,7 +32,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
-  const isNotMobileScreens = useMediaQuery("(min-width:1000px)");
+  const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
 
   const theme = useTheme();
   const neutralLight = theme.palette.neutral.Light;
@@ -58,9 +58,9 @@ const Navbar = () => {
             },
           }}
         >
-          Socilapedia
+          Sociopedia
         </Typography>
-        {isNotMobileScreens && (
+        {isNonMobileScreens && (
           <FlexBetween
             backgroundColor={neutralLight}
             borderRadius="9px"
@@ -75,7 +75,7 @@ const Navbar = () => {
         )}
       </FlexBetween>
       {/* Desktop Nav */}
-      {isNotMobileScreens ? (
+      {isNonMobileScreens ? (
         <FlexBetween gap="2rem">
           <IconButton onClick={() => dispatch(setMode())}>
             {theme.palette.mode === "dark" ? (
@@ -95,7 +95,7 @@ const Navbar = () => {
                 backgroundColor: neutralLight,
                 width: "150px",
                 borderRadius: "0.25rem",
-                p: "1.25rem 1rem",
+                p: "0.25rem 1rem",
                 "& .MuiSvgIcon-root": {
                   pr: "0.25rem",
                   width: "3rem",
@@ -121,7 +121,7 @@ const Navbar = () => {
         </IconButton>
       )}
       {/* Mobile nav */}
-      {!isNotMobileScreens && isNotMobileScreens && (
+      {!isNonMobileScreens && isMobileMenuToggled && (
         <Box
           position="fixed"
           right="0"
@@ -166,7 +166,7 @@ const Navbar = () => {
                   backgroundColor: neutralLight,
                   width: "150px",
                   borderRadius: "0.25rem",
-                  p: "1.25rem 1rem",
+                  p: "0.25rem 1rem",
                   "& .MuiSvgIcon-root": {
                     pr: "0.25rem",
                     width: "3rem",
