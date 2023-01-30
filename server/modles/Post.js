@@ -25,12 +25,12 @@ const postSchema = mongoose.Schema(
        comments:{
         type:Array,
         default:[]
-       }
+       },
     },
     {
         timeStamps:true
     }
-)
+);
 
 const Post = mongoose.model("Post",postSchema);
 

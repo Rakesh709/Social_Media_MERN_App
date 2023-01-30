@@ -10,7 +10,6 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-
 import {
   Search,
   Message,
@@ -21,7 +20,6 @@ import {
   Menu,
   Close,
 } from "@mui/icons-material";
-
 import { useDispatch, useSelector } from "react-redux";
 import { setMode, setLogout } from "state";
 import { useNavigate } from "react-router-dom";
@@ -32,10 +30,10 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
-  const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
+  const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
 
   const theme = useTheme();
-  const neutralLight = theme.palette.neutral.Light;
+  const neutralLight = theme.palette.neutral.light;
   const dark = theme.palette.neutral.dark;
   const background = theme.palette.background.default;
   const primaryLight = theme.palette.primary.light;
@@ -48,13 +46,13 @@ const Navbar = () => {
       <FlexBetween gap="1.75rem">
         <Typography
           fontWeight="bold"
-          fontSize="clamp(1rem,2rem,2.25rem)"
+          fontSize="clamp(1rem, 2rem, 2.25rem)"
           color="primary"
           onClick={() => navigate("/home")}
           sx={{
             "&:hover": {
               color: primaryLight,
-              curser: "pointer",
+              cursor: "pointer",
             },
           }}
         >
@@ -74,7 +72,8 @@ const Navbar = () => {
           </FlexBetween>
         )}
       </FlexBetween>
-      {/* Desktop Nav */}
+
+      {/* DESKTOP NAV */}
       {isNonMobileScreens ? (
         <FlexBetween gap="2rem">
           <IconButton onClick={() => dispatch(setMode())}>
@@ -82,7 +81,6 @@ const Navbar = () => {
               <DarkMode sx={{ fontSize: "25px" }} />
             ) : (
               <LightMode sx={{ color: dark, fontSize: "25px" }} />
-              //{/* using the redux to change dark and light */}
             )}
           </IconButton>
           <Message sx={{ fontSize: "25px" }} />
@@ -120,7 +118,8 @@ const Navbar = () => {
           <Menu />
         </IconButton>
       )}
-      {/* Mobile nav */}
+
+      {/* MOBILE NAV */}
       {!isNonMobileScreens && isMobileMenuToggled && (
         <Box
           position="fixed"
@@ -132,7 +131,7 @@ const Navbar = () => {
           minWidth="300px"
           backgroundColor={background}
         >
-          {/*close icon  */}
+          {/* CLOSE ICON */}
           <Box display="flex" justifyContent="flex-end" p="1rem">
             <IconButton
               onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}
@@ -140,20 +139,23 @@ const Navbar = () => {
               <Close />
             </IconButton>
           </Box>
-          {/*menu Item  */}
-          <FlexBetween 
-          display="flex"
-           flexDirection="column" 
-           justifyContent="center" 
-           alignItem="center" 
-           gap="3rem">
-            <IconButton onClick={() => dispatch(setMode())}
-             sx={{fontSize:"25px"}}>
+
+          {/* MENU ITEMS */}
+          <FlexBetween
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            gap="3rem"
+          >
+            <IconButton
+              onClick={() => dispatch(setMode())}
+              sx={{ fontSize: "25px" }}
+            >
               {theme.palette.mode === "dark" ? (
                 <DarkMode sx={{ fontSize: "25px" }} />
               ) : (
                 <LightMode sx={{ color: dark, fontSize: "25px" }} />
-                //{/* using the redux to change dark and light */}
               )}
             </IconButton>
             <Message sx={{ fontSize: "25px" }} />

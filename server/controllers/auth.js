@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import User from "../models/Users.js";
+import User from "../models/User.js";
 
 // REGISTER USER
 // sysnc beacuse ur calling frontend to backend then backend to db
@@ -37,7 +37,7 @@ export const register =async(req,res)=>{
         } catch(err){
             res.status(500).json({error:err.message});
         }
-    }
+    };
 
     //LOGIN
     export const login =async(req,res)=>{
@@ -58,4 +58,4 @@ export const register =async(req,res)=>{
         } catch(err){
             res.status(500).json({error:err.message});
         }
-    }
+    };
