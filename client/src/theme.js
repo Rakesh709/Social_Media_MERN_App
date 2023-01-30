@@ -37,7 +37,7 @@ export const colorTokens = {
       //default for  material ui theme 
       palette:{
         mode: mode,
-        ...(mode==="dark")? {
+        ...(mode==="dark"? {
           //palette value for dark mode :
           primary:{
             dark: colorTokens.primary[200],
@@ -73,9 +73,9 @@ export const colorTokens = {
           background: {
             default: colorTokens.grey[10],
             alt : colorTokens.grey[0]
-          }
+          },
 
-        }
+        }),
 
       },
       typography:{
